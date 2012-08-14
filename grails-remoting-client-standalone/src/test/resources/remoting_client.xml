@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/lang
+	http://www.springframework.org/schema/lang/spring-lang.xsd">
+
+	<bean id="rmiService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+		<property name="serviceUrl" value="rmi://localhost:1199/RemotingService" />
+		<property name="serviceInterface" value="com.github.tsuyo.gremoting.common.IRemotingService" />
+	</bean>
+
+	<bean id="hessianService"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl"
+			value="http://localhost:8080/grails-remoting-server/hessian/RemotingService" />
+		<property name="serviceInterface" value="com.github.tsuyo.gremoting.common.IRemotingService" />
+	</bean>
+
+	<bean id="burlapService"
+		class="org.springframework.remoting.caucho.BurlapProxyFactoryBean">
+		<property name="serviceUrl"
+			value="http://localhost:8080/grails-remoting-server/burlap/RemotingService" />
+		<property name="serviceInterface" value="com.github.tsuyo.gremoting.common.IRemotingService" />
+	</bean>
+
+	<bean id="httpInvokerService"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+		<property name="serviceUrl"
+			value="http://localhost:8080/grails-remoting-server/httpinvoker/RemotingService" />
+		<property name="serviceInterface" value="com.github.tsuyo.gremoting.common.IRemotingService" />
+	</bean>
+
+</beans>

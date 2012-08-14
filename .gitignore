@@ -1,0 +1,7 @@
+bin
+build
+.gradle
+*.class
+*.jar
+target
+target-eclipse
